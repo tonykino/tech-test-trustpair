@@ -22,6 +22,7 @@
 
 /public/assets
 .byebug_history
+spec/examples.txt
 .DS_Store
 .env
 

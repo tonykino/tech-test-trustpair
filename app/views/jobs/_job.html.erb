@@ -2,7 +2,11 @@
   <td><%= job.year %></td>
   <td><%= job.contract_type %></td>
   <td><%= job.job %></td>
-  <td><%= job.men_workforces %></td>
-  <td><%= job.women_workforces %></td>
-  <td>33%</td>
+  <td><%= "#{job.men_workforces} (#{job.men_percentage} %)" %></td>
+  <td><%= "#{job.women_workforces} (#{job.women_percentage} %)" %></td>
+  <% if job.parity_valid? %>
+    <td><%= "#{job.parity_score}, Top!" %></td>
+  <% elsif %>
+    <td><%= "#{job.parity_score}, Bof!" %></td>
+  <% end %>
 </tr>

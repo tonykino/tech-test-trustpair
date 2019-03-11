@@ -20,6 +20,8 @@
 include OpendataParisApi
 
 class Job < ApplicationRecord
+  MAX_WANTED_PARITY = 15
+
   def self.create_and_complete(params)
     return if Job.find_by(params)
 
@@ -34,5 +36,25 @@ class Job < ApplicationRecord
       self.men_workforces += record['fields']['nombre_d_hommes'].to_i
       self.women_workforces += record['fields']['nombre_de_femmes'].to_i
     end
+  end
+
+  def global_workforces
+    men_workforces + women_workforces
+  end
+
+  def men_percentage
+    global_workforces.zero? ? 0 : men_workforces * 100 / global_workforces
+  end
+
+  def women_percentage
+    global_workforces.zero? ? 0 : women_workforces * 100 / global_workforces
+  end
+
+  def parity_score
+    (men_percentage - women_percentage).abs
+  end
+
+  def parity_valid?
+    parity_score < MAX_WANTED_PARITY
   end
 end

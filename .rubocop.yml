@@ -15,5 +15,8 @@ AllCops:
 Rails:
   Enabled: true
 
+Style/MixinUsage:
+  Enabled: false
+
 Layout/IndentationConsistency:
   EnforcedStyle: rails

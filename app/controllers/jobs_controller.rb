@@ -2,7 +2,7 @@
 
 class JobsController < ApplicationController
   def index
-    @jobs = Job.all.order(:job).order(:year)
+    @jobs = Job.all.order(:job).order(:year).order(:contract_type)
   end
 
   def import

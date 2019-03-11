@@ -1,0 +1,10 @@
+<nav class="navbar navbar-dark bg-dark d-flex flex-between">
+  <%= link_to 'Jobs', root_path, class: 'navbar-brand' %>
+
+  <div class="">
+    <%= form_tag import_jobs_path, multipart: true, class: "" do %>
+      <%= file_field_tag 'jobs_list', class: "" %>
+    	<%= submit_tag "Importer un fichier", class: "btn btn-outline-light" %>
+    <% end %>
+  </div>
+</nav>

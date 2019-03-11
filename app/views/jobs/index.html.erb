@@ -1,0 +1,19 @@
+<% unless @jobs.empty? %>
+  <p>Total of <%= @jobs.count %> jobs</p>
+  <table class="table table-hover table-sm">
+    <thead class='thead-light'>
+      <tr>
+        <th scope="col">Année</th>
+        <th scope="col">Collectivité</th>
+        <th scope="col">Type de contrat</th>
+        <th scope="col">Emplois</th>
+        <th scope="col">Niveau</th>
+        <th scope="col">Spécialité</th>
+        <th scope="col">Dernier update</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @jobs %>
+    </tbody>
+  </table>
+<% end %>

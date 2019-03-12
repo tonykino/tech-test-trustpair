@@ -5,8 +5,10 @@
   <td><%= "#{job.men_workforces} (#{job.men_percentage} %)" %></td>
   <td><%= "#{job.women_workforces} (#{job.women_percentage} %)" %></td>
   <% if job.parity_valid? %>
-    <td><%= "#{job.parity_score}, Top!" %></td>
-  <% elsif %>
-    <td><%= "#{job.parity_score}, Bof!" %></td>
+    <td class='text-success'><i class='fas fa-venus-mars'></i> <%= "#{job.parity_score} %" %></td>
+  <% elsif job.men_percentage > job.women_percentage %>
+    <td class='text-primary'><i class='fas fa-mars'></i> <%= "#{job.parity_score} %" %></td>
+  <% else job.men_percentage > job.women_percentage %>
+    <td class='text-magenta'><i class='fas fa-venus'></i> <%= "#{job.parity_score} %" %></td>
   <% end %>
 </tr>

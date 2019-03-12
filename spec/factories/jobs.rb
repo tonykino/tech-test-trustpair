@@ -16,11 +16,13 @@
 
 FactoryBot.define do
   factory :job do
-    year { "MyString" }
-    collectivity { "MyString" }
-    contract_type { "MyString" }
-    job { "MyString" }
-    level { "MyString" }
-    specialty { "MyString" }
+    year { ['2013', '2014', '2015'].sample }
+    contract_type { ['TEMPS INCOMPLET', 'TEMPS COMPLET'].sample }
+    job { Faker::Alphanumeric.alphanumeric 32 }
+
+    trait(:with_workforces) do
+      men_workforces { rand(100) }
+      women_workforces { rand(100) }
+    end
   end
 end

@@ -25,9 +25,8 @@ class Job < ApplicationRecord
   def self.create_and_complete(params)
     return if Job.find_by(params)
 
-    job = Job.new(params)
-    job.complete_with_workforces_from_api_data
-    job.save
+    job = Job.create!(params)
+    ParisApiCallJob.perform_later(job)
   end
 
   def complete_with_workforces_from_api_data
@@ -36,6 +35,7 @@ class Job < ApplicationRecord
       self.men_workforces += record['fields']['nombre_d_hommes'].to_i
       self.women_workforces += record['fields']['nombre_de_femmes'].to_i
     end
+    save
   end
 
   def global_workforces

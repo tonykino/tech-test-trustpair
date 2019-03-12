@@ -13,8 +13,8 @@
 #  specialty        :string
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
-#  men_workforces   :integer          default(0)
-#  women_workforces :integer          default(0)
+#  men_workforces   :integer
+#  women_workforces :integer
 #
 
 require 'rails_helper'

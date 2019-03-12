@@ -19,6 +19,10 @@ include OpendataParisApi
 class Job < ApplicationRecord
   MAX_WANTED_PARITY = 15
 
+  validates :year, inclusion: { in: %w(2013 2014 2015) }
+  validates :contract_type, inclusion: { in: ['TEMPS COMPLET', 'TEMPS INCOMPLET'] }
+  validates :job, presence: true
+
   def self.create_and_complete(params)
     return if Job.find_by(params)
 

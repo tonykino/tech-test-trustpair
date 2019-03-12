@@ -24,8 +24,8 @@ ActiveRecord::Schema.define(version: 2019_03_11_213024) do
     t.string "specialty"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "men_workforces", default: 0
-    t.integer "women_workforces", default: 0
+    t.integer "men_workforces"
+    t.integer "women_workforces"
   end
 
 end

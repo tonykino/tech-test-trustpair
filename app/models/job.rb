@@ -26,8 +26,8 @@ class Job < ApplicationRecord
   def self.create_and_complete(params)
     return if Job.find_by(params)
 
-    job = Job.create!(params)
-    ParisApiCallJob.perform_later(job)
+    job = Job.create(params)
+    ParisApiCallJob.perform_later(job) if job.valid?
   end
 
   def complete_with_workforces_from_api_data

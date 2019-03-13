@@ -21,6 +21,7 @@
 /yarn-error.log
 
 /public/assets
+/coverage
 .byebug_history
 spec/examples.txt
 .DS_Store

@@ -15,6 +15,10 @@
       <%= render @jobs %>
     </tbody>
   </table>
+
+  <%= will_paginate @jobs, renderer: WillPaginate::ActionView::BootstrapLinkRenderer,
+                           list_classes: %w(pagination justify-content-center) %>
+                           
 <% else %>
   <div class="mt-4 d-flex justify-content-center lead">
     Veuillez importer un fichier pour ajouter des emplois dans la base de donnée.
